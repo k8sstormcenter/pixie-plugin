@@ -1,0 +1,10 @@
+documentationURL: ""
+defaultExportURL: "username:password@clickhouse.obs.svc.cluster.local:9000/default"
+allowCustomExportURL: true
+allowInsecureTLS: true
+presetScripts:
+  - name: "http_events export"
+    description: "This script exports data from the http_events"
+    script: |
+      import px
+      df = px.DataFrame(table='http_events',  start_time=px.plugin.start_time, end_time=px.plugin.end_time)
